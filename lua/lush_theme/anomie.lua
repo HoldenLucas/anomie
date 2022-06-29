@@ -174,10 +174,10 @@ local theme = lush(function()
     -- set `sp` to use underline, e.g.
     -- DiagnosticUnderlineError { gui = "underline", sp = DiagnosticError.fg },
 
-    DiagnosticSignError { DiagnosticUnderlineError, fg = DiagnosticUnderlineError.bg.readable() },
-    DiagnosticSignWarn { DiagnosticUnderlineWarn, fg = DiagnosticUnderlineWarn.bg.readable() },
-    DiagnosticSignInfo { DiagnosticUnderlineInfo, fg = DiagnosticUnderlineInfo.bg.readable() },
-    DiagnosticSignHint { DiagnosticUnderlineHint, fg = DiagnosticUnderlineHint.bg.readable() },
+    DiagnosticSignError { bg = DiagnosticError.fg, fg = DiagnosticError.fg.readable() },
+    DiagnosticSignWarn { bg = DiagnosticWarn.fg, fg = DiagnosticWarn.fg.readable() },
+    DiagnosticSignInfo { bg = DiagnosticInfo.fg, fg = DiagnosticInfo.fg.readable() },
+    DiagnosticSignHint { bg = DiagnosticHint.fg, fg = DiagnosticHint.fg.readable() },
 
     -- (:h vim.lsp.buf.signature_help)
     LspSignatureActiveParameter { IncSearch },
