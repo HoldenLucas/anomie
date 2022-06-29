@@ -44,7 +44,7 @@ local theme = lush(function()
     ErrorMsg { Error }, -- error messages on the command line
     WarningMsg { fg = yellow }, -- warning messages
 
-    Comment { fg = Normal.fg.lighten(60) }, -- any comment
+    Comment { fg = Normal.fg.lighten(75) }, -- any comment
     Conceal { gui = "bold" }, -- placeholder characters substituted for concealed text (see 'conceallevel')
 
     Cursor { bg = Normal.fg, fg = Normal.bg.lighten(25) }, -- character under the cursor
@@ -63,7 +63,7 @@ local theme = lush(function()
     DiffDelete { bg = red.desaturate(40).lighten(70) }, -- diff mode: Deleted line |diff.txt|
     DiffText { bg = blue.desaturate(18).lighten(56) }, -- diff mode: Changed text within a changed line |diff.txt|
 
-    LineNr { fg = Normal.bg.darken(36) }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
+    LineNr { fg = Comment.fg }, -- Line number for ":number" and ":#" commands, and when 'number' or 'relativenumber' option is set.
     SignColumn { LineNr }, -- column where |signs| are displayed
     FoldColumn { LineNr, gui = "bold" }, -- 'foldcolumn'
     Folded { bg = Normal.bg.darken(16) }, -- line used for closed folds
@@ -167,10 +167,11 @@ local theme = lush(function()
     DiagnosticHint { fg = green },
 
     -- background highlight
-    DiagnosticUnderlineError { bg = DiagnosticError.fg.lighten(80) },
-    DiagnosticUnderlineWarn { bg = DiagnosticWarn.fg.lighten(80) },
-    DiagnosticUnderlineInfo { bg = DiagnosticInfo.fg.lighten(85) },
-    DiagnosticUnderlineHint { bg = DiagnosticHint.fg.lighten(90) },
+    -- DiagnosticUnderlineError { bg = DiagnosticError.fg.lighten(80) },
+    -- DiagnosticUnderlineWarn { bg = DiagnosticWarn.fg.lighten(80) },
+    -- DiagnosticUnderlineInfo { bg = DiagnosticInfo.fg.lighten(85) },
+    -- DiagnosticUnderlineHint { bg = DiagnosticHint.fg.lighten(90) },
+
     -- set `sp` to use underline, e.g.
     -- DiagnosticUnderlineError { gui = "underline", sp = DiagnosticError.fg },
 
@@ -187,11 +188,9 @@ local theme = lush(function()
     -------------------------------------------------------------------------
 
     -- Custom, used by my status line
-    -- TODO: should these match underline or the raw error?
-    --       e.g. 'DiagnosticError' vs 'DiagnosticUnderlineError'
-    StatusLineError { DiagnosticUnderlineError },
-    StatusLineWarn { DiagnosticUnderlineWarn },
-    StatusLineHint { DiagnosticUnderlineHint },
+    StatusLineError { DiagnosticSignError },
+    StatusLineWarn { DiagnosticSignWarn },
+    StatusLineHint { DiagnosticSignHint },
 
     -- (:h gitsigns-usage)
     GitSignsAdd { fg = green, bg = DiffAdd.bg.lighten(30) },
