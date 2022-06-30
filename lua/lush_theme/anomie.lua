@@ -175,10 +175,10 @@ local theme = lush(function()
     -- set `sp` to use underline, e.g.
     -- DiagnosticUnderlineError { gui = "underline", sp = DiagnosticError.fg },
 
-    DiagnosticSignError { bg = DiagnosticError.fg, fg = Normal.bg },
-    DiagnosticSignWarn { bg = DiagnosticWarn.fg, fg = Normal.fg },
-    DiagnosticSignInfo { bg = DiagnosticInfo.fg, fg = Normal.bg },
-    DiagnosticSignHint { bg = DiagnosticHint.fg, fg = Normal.bg },
+    -- DiagnosticSignError { fg = DiagnosticError.fg },
+    -- DiagnosticSignWarn { fg = DiagnosticWarn.fg },
+    -- DiagnosticSignInfo { fg = DiagnosticInfo.fg },
+    -- DiagnosticSignHint { fg = DiagnosticHint.fg },
 
     DiagnosticFloatingError { gui = "underline", sp = DiagnosticError.fg },
     DiagnosticFloatingWarn { gui = "underline", sp = DiagnosticWarn.fg },
