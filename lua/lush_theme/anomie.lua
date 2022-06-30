@@ -166,18 +166,19 @@ local theme = lush(function()
     DiagnosticInfo { fg = blue },
     DiagnosticHint { fg = green },
 
-    -- background highlight
+    -- underline as background highlight
     -- DiagnosticUnderlineError { bg = DiagnosticError.fg.lighten(80) },
     -- DiagnosticUnderlineWarn { bg = DiagnosticWarn.fg.lighten(80) },
     -- DiagnosticUnderlineInfo { bg = DiagnosticInfo.fg.lighten(85) },
     -- DiagnosticUnderlineHint { bg = DiagnosticHint.fg.lighten(90) },
+    --
     -- set `sp` to use underline, e.g.
     -- DiagnosticUnderlineError { gui = "underline", sp = DiagnosticError.fg },
 
-    DiagnosticSignError { bg = DiagnosticError.fg, fg = DiagnosticError.fg.readable() },
-    DiagnosticSignWarn { bg = DiagnosticWarn.fg, fg = DiagnosticWarn.fg.readable() },
-    DiagnosticSignInfo { bg = DiagnosticInfo.fg, fg = DiagnosticInfo.fg.readable() },
-    DiagnosticSignHint { bg = DiagnosticHint.fg, fg = DiagnosticHint.fg.readable() },
+    DiagnosticSignError { bg = DiagnosticError.fg, fg = Normal.bg },
+    DiagnosticSignWarn { bg = DiagnosticWarn.fg, fg = Normal.fg },
+    DiagnosticSignInfo { bg = DiagnosticInfo.fg, fg = Normal.bg },
+    DiagnosticSignHint { bg = DiagnosticHint.fg, fg = Normal.bg },
 
     DiagnosticFloatingError { gui = "underline", sp = DiagnosticError.fg },
     DiagnosticFloatingWarn { gui = "underline", sp = DiagnosticWarn.fg },
@@ -190,11 +191,6 @@ local theme = lush(function()
     -------------------------------------------------------------------------
     -- Plugins
     -------------------------------------------------------------------------
-
-    -- Custom, used by my status line
-    StatusLineError { DiagnosticSignError },
-    StatusLineWarn { DiagnosticSignWarn },
-    StatusLineHint { DiagnosticSignHint },
 
     -- (:h gitsigns-usage)
     GitSignsAdd { fg = green, bg = DiffAdd.bg.lighten(30) },
